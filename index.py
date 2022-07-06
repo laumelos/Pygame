@@ -33,6 +33,10 @@ while True:
     if y  >= altura:
         y = 0
     y = y + 1
+
+    tela.blit(coraçao,(320,30))
+
+    tela.blit(coraçao,(440,70))
     
     #texto
     txt='pet.com'                                 
