@@ -5,6 +5,8 @@ from sys import exit
 pygame.init()
 white = (255,255,255)
 coraçao = pygame.image.load ("Removal-118.png")
+coraçao2 = pygame.image.load ("Removal-118(2).png")
+coraçao3 = pygame.image.load ("Removal-118  (3).png")
 
 largura = 640
 altura = 480
@@ -25,17 +27,10 @@ while True:
 
     #corações
     
-    tela.blit( pygame.image.load ("Removal-118.png"),(x,y,0,0))
+    tela.blit(coraçao,(x,y,0,0))
     if y  >= altura:
         y = 0
     y = y + 1
-
-    tela.blit( pygame.image.load ("Removal-118.png"),(x,y,100,100))
-    if y  >= altura:
-        y = 0
-    y = y + 1
- 
- 
     
     #texto
     txt='hello world'                                 
