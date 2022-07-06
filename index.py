@@ -3,11 +3,11 @@ from pygame.locals import *
 from sys import exit
 
 pygame.init()
-white = (255,255,255)
-coraçao = pygame.image.load ("Removal-118.png")
-coraçao2 = pygame.image.load ("Removal-118(2).png")
-coraçao3 = pygame.image.load ("Removal-118  (3).png")
 
+#variáveis
+white = (255,255,255)
+coraçao = pygame.image.load ("coraçao.png")
+gatinho = pygame.image.load ("gatinho.png")
 largura = 640
 altura = 480
 x = 0
@@ -25,20 +25,22 @@ while True:
     
     #TELA INICIAL
 
+    #gatinho
+    tela.blit(gatinho,(245,200))
+
     #corações
-    
     tela.blit(coraçao,(x,y,0,0))
     if y  >= altura:
         y = 0
     y = y + 1
     
     #texto
-    txt='hello world'                                 
+    txt='pet.com'                                 
     pygame.font.init()                                
     fonte=pygame.font.get_default_font()              ##### fonte padrão
     fontesys=pygame.font.SysFont(fonte, 60)           ##### fonte
     txttela = fontesys.render(txt, 1, (0,0,0))        ##### cor
-    tela.blit(txttela,(210,100))                      ##### posição
+    tela.blit(txttela,(240,100))                      ##### posição
     pygame.display.update()                        
 
     
