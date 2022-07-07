@@ -1,17 +1,24 @@
+from typing import List
 import pygame
 from pygame.locals import *
 from sys import exit
 import time
+import pygame.sprite
  
 pygame.init()
+pygame.font.init()
+pygame.mixer.init()
+
  
 #variáveis
 white = (255,255,255)
+bubbles = pygame.image.load ("c92a44f1dbab187.png")
 coraçao = pygame.image.load ("coraçao.png")
 gatinho = pygame.image.load ("gatinho.png")
 gatinhomaior = pygame.image.load ("gatinhomaior.png")
 fundo = pygame.image.load ("fundojogo.png")
-bubbles = pygame.image.load ("c92a44f1dbab187.png")
+bubblesound = pygame.mixer.Sound('539823__ristooooo1__bubbles-001.wav')
+
 largura = 640
 altura = 480
 x = 0
@@ -21,9 +28,6 @@ y = 0
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
 tela.blit(fundo,(0,0))
-
-
- 
 
 #button class
 class button():
@@ -61,8 +65,20 @@ water_img = button(120, 395, water_img, 1)
 #TELA
 telainicial=True
 while telainicial==True:
-    if (water_img.draw(tela)):                            
-        tela.blit(bubbles,(100, 200))
+    if (water_img.draw(tela)):                           
+        tela.blit(bubbles,(210, 80))
+        pygame.mixer.Sound.play(bubblesound)
+        pygame.mixer.music.stop()
+        pygame.display.update()
+        time.sleep(4)
+        tela.blit(gatinhomaior,(200,140))
+    
+    
+
+        
+        
+
+        
 
     for event in pygame.event.get():
         #quit game
