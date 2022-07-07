@@ -63,10 +63,16 @@ while telainicial==True:
             telainicial=False
     pygame.time
     
-    '''
-    imgbutton = pygame.image.load ("buttonjogo.png")
-    tela.blit(imgbutton,(240, 360))
-    '''   
+    sabao_img = pygame.image.load ("Removal-77.png")
+    tela.blit(sabao_img,(120, 395))
+    
+    morango_img = pygame.image.load ("morango.png")
+    tela.blit(morango_img,(280, 390))
+
+    lua_img = pygame.image.load ("lua.png")
+    tela.blit(lua_img,(460, 390))
+
+     
     #gatinho
     tela.blit(gatinhomaior,(200,140))
 
