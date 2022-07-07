@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from sys import exit
+import time
  
 pygame.init()
  
@@ -10,6 +11,7 @@ coraçao = pygame.image.load ("coraçao.png")
 gatinho = pygame.image.load ("gatinho.png")
 gatinhomaior = pygame.image.load ("gatinhomaior.png")
 fundo = pygame.image.load ("fundojogo.png")
+bubbles = pygame.image.load ("c92a44f1dbab187.png")
 largura = 640
 altura = 480
 x = 0
@@ -19,8 +21,10 @@ y = 0
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
 tela.blit(fundo,(0,0))
+
+
  
-'''
+
 #button class
 class button():
     def __init__(self, x, y, image, scale):
@@ -49,29 +53,32 @@ class button():
  
         return action
  
-#button
-button_img = pygame.image.load("buttonjogo.png").convert_alpha()
-button_img = button(240, 360, button_img, 1)
-'''
+#button water
+water_img = pygame.image.load("sabonete.png").convert_alpha()
+water_img = button(120, 395, water_img, 1)
+
  
 #TELA
 telainicial=True
 while telainicial==True:
+    if (water_img.draw(tela)):                            
+        tela.blit(bubbles,(100, 200))
+
     for event in pygame.event.get():
         #quit game
         if event.type == pygame.QUIT:
             telainicial=False
-    pygame.time
     
-    sabao_img = pygame.image.load ("Removal-77.png")
-    tela.blit(sabao_img,(120, 395))
-    
+   #button images
+    water = pygame.image.load ("sabonete.png")
+    tela.blit(water,(120, 395))
+    #time.sleep(5)
+
     morango_img = pygame.image.load ("morango.png")
     tela.blit(morango_img,(280, 390))
 
     lua_img = pygame.image.load ("lua.png")
     tela.blit(lua_img,(460, 390))
-
      
     #gatinho
     tela.blit(gatinhomaior,(200,140))
