@@ -3,8 +3,8 @@ from sys import exit
 
 #variáveis
 white = (255,255,255)
-coraçao = pygame.image.load ("coraçao.png")
-gatinho = pygame.image.load ("gatinho.png")
+coraçao = pygame.image.load ("images/coraçao.png")
+gatinho = pygame.image.load ("images/gatinho.png")
 largura = 640
 altura = 480
 x = 0

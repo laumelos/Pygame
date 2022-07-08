@@ -12,12 +12,15 @@ pygame.mixer.init()
  
 #variáveis
 white = (255,255,255)
-bubbles = pygame.image.load ("c92a44f1dbab187.png")
-coraçao = pygame.image.load ("coraçao.png")
-gatinho = pygame.image.load ("gatinho.png")
-gatinhomaior = pygame.image.load ("gatinhomaior.png")
-fundo = pygame.image.load ("fundojogo.png")
-bubblesound = pygame.mixer.Sound('539823__ristooooo1__bubbles-001.wav')
+bubbles = pygame.image.load ('images/bolhas.png')
+coraçao = pygame.image.load ('images/coraçao.png')
+gatinho = pygame.image.load ('images/gatinho.png')
+gatinhomaior = pygame.image.load ('images/gatinhomaior.png')
+gatinhodormindo =  pygame.image.load ('images/gatinhodormindo.png')
+fundo = pygame.image.load ("images/fundojogo.png")
+fundoazul = pygame.image.load ('images/fundoazul.png')
+bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
+sleepsound = pygame.mixer.Sound('sounds/gatinhodormindo.wav')
 
 largura = 640
 altura = 480
@@ -58,43 +61,54 @@ class button():
         return action
  
 #button water
-water_img = pygame.image.load("sabonete.png").convert_alpha()
+water_img = pygame.image.load("images/agua.png").convert_alpha()
 water_img = button(120, 395, water_img, 1)
+
+
+lua_img = pygame.image.load("images/lua.png").convert_alpha()
+lua_img = button(460, 390,lua_img, 1)
 
  
 #TELA
 telainicial=True
 while telainicial==True:
-    if (water_img.draw(tela)):                           
+    
+    if (water_img.draw(tela)):    
+
         tela.blit(bubbles,(210, 80))
         pygame.mixer.Sound.play(bubblesound)
         pygame.mixer.music.stop()
         pygame.display.update()
-        time.sleep(4)
+        time.sleep(6)
         tela.blit(gatinhomaior,(200,140))
+        tela.blit(fundo,(0,0))
     
+    if (lua_img.draw(tela)):    
+
+        tela.blit(fundoazul,(0,0))
+        tela.blit(gatinhodormindo,(200,210))
+        pygame.mixer.Sound.play(sleepsound)
+        pygame.mixer.music.stop()
+        pygame.display.update()
+        time.sleep(4)
     
-
+        tela.blit(fundo,(0,0))
         
-        
-
-        
-
     for event in pygame.event.get():
         #quit game
         if event.type == pygame.QUIT:
             telainicial=False
     
    #button images
-    water = pygame.image.load ("sabonete.png")
+    water = pygame.image.load ("images/agua.png")
     tela.blit(water,(120, 395))
     #time.sleep(5)
 
-    morango_img = pygame.image.load ("morango.png")
+    morango_img = pygame.image.load ("images/morango.png")
     tela.blit(morango_img,(280, 390))
 
-    lua_img = pygame.image.load ("lua.png")
-    tela.blit(lua_img,(460, 390))
+    lua = pygame.image.load ("images/lua.png")
+    tela.blit(lua,(460, 390))
      
     #gatinho
     tela.blit(gatinhomaior,(200,140))
