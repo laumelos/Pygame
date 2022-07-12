@@ -34,6 +34,9 @@ tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
 tela.blit(fundo,(0,0))
 
+pygame.draw.line(tela, (white), (20,110), (20,360), 5)
+pygame.draw.line(tela, (white), (70,110), (70,360), 5)
+
 #button class
 class button():
     def __init__(self, x, y, image, scale):
@@ -77,6 +80,8 @@ lua_img = button(460, 390,lua_img, 1)
 #TELA
 telainicial=True
 while telainicial==True:
+
+    pygame.draw.rect(tela, (white), (30,120,30,230))
     
     #funcionalid banho
     if (agua_img.draw(tela)):    
