@@ -15,6 +15,8 @@ largura = 640
 altura = 480
 x = 0
 y = 0
+happybar = 230
+#happybarlar = 50
 
 #imagens load
 bubbles = pygame.image.load ('images/bolhas.png')
@@ -24,6 +26,10 @@ gatinhomaior = pygame.image.load ('images/gatinhomaior.png')
 gatinhodormindo =  pygame.image.load ('images/gatinhodormindo.png')
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
+framebarra = pygame.image.load ('images/framebar.png')
+fundobarra = pygame.image.load ('images/fundobarra.png')
+
+
 
 #sounds load
 bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
@@ -34,8 +40,9 @@ tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
 tela.blit(fundo,(0,0))
 
-pygame.draw.line(tela, (white), (20,110), (20,360), 5)
-pygame.draw.line(tela, (white), (70,110), (70,360), 5)
+# class barra():
+#     def __init__(self, time):
+
 
 #button class
 class button():
@@ -80,8 +87,14 @@ lua_img = button(460, 390,lua_img, 1)
 #TELA
 telainicial=True
 while telainicial==True:
-
-    pygame.draw.rect(tela, (white), (30,120,30,230))
+    
+    if happybar>=0:
+        pygame.draw.rect(tela, (white), (38,123,30,happybar))
+        happybar = happybar - 30
+        pygame.display.update()
+        tela.blit(fundobarra,(0, 0))
+        pygame.draw.rect(tela, (white), (38,123,30,happybar))
+        time.sleep(3)
     
     #funcionalid banho
     if (agua_img.draw(tela)):    
@@ -99,18 +112,18 @@ while telainicial==True:
 
         tela.blit(fundoazul,(0,0))
         tela.blit(gatinhodormindo,(200,210))
+        tela.blit(framebarra,(25,110))
         pygame.mixer.Sound.play(sleepsound)
         pygame.mixer.music.stop()
         pygame.display.update()
         time.sleep(4)
-    
         tela.blit(fundo,(0,0))
         
     for event in pygame.event.get():
         #quit game
         if event.type == pygame.QUIT:
             telainicial=False
-    
+
    #button images
     water = pygame.image.load ("images/agua.png")
     tela.blit(water,(120, 395))
@@ -123,6 +136,12 @@ while telainicial==True:
      
     #gatinho
     tela.blit(gatinhomaior,(200,140))
+
+    #frame barra
+    tela.blit(framebarra,(25,110))
+
+    
+
 
     pygame.display.update()
  
