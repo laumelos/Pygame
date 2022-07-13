@@ -13,23 +13,20 @@ pygame.mixer.init()
 white = (255,255,255)
 largura = 640
 altura = 480
+happybar = 230
 x = 0
 y = 0
-happybar = 230
-#happybarlar = 50
 
 #imagens load
 bubbles = pygame.image.load ('images/bolhas.png')
 coraçao = pygame.image.load ('images/coraçao.png')
-gatinho = pygame.image.load ('images/gatinho.png')
-gatinhomaior = pygame.image.load ('images/gatinhomaior.png')
-gatinhodormindo =  pygame.image.load ('images/gatinhodormindo.png')
+cat = pygame.image.load ('images/cat.png')
+bigcat = pygame.image.load ('images/bigcat.png')
+sleepycat =  pygame.image.load ('images/sleepycat.png')
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
 framebarra = pygame.image.load ('images/framebar.png')
 fundobarra = pygame.image.load ('images/fundobarra.png')
-
-
 
 #sounds load
 bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
@@ -39,10 +36,6 @@ sleepsound = pygame.mixer.Sound('sounds/gatinhodormindo.wav')
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
 tela.blit(fundo,(0,0))
-
-# class barra():
-#     def __init__(self, time):
-
 
 #button class
 class button():
@@ -89,10 +82,10 @@ telainicial=True
 while telainicial==True:
 
     tela.blit(fundobarra,(0, 0))
-    
+
     if happybar>=0:
         pygame.draw.rect(tela, (white), (38,123,30,happybar))
-        happybar = happybar - 0.01
+        happybar = happybar - 0.008
         
     else:
         telainicial==False
@@ -106,7 +99,7 @@ while telainicial==True:
         pygame.mixer.music.stop()
         pygame.display.update()                                 
         time.sleep(6)
-        tela.blit(gatinhomaior,(200,140))
+        tela.blit(bigcat,(200,140))
         tela.blit(fundo,(0,0))
 
         happybar = happybar + 10
@@ -115,23 +108,21 @@ while telainicial==True:
     if (lua_img.draw(tela)):    
 
         tela.blit(framebarra,(25,110))
-        tela.blit(fundoazul,(0,0))
-        tela.blit(gatinhodormindo,(200,210))
+        tela.blit(fundoazul,(107,0))
+        tela.blit(sleepycat,(200,210))
         tela.blit(framebarra,(25,110))
         pygame.mixer.Sound.play(sleepsound)
         pygame.mixer.music.stop()
         pygame.display.update()
         time.sleep(4)
         tela.blit(fundo,(0,0))
+
+        happybar = happybar + 10
         
     for event in pygame.event.get():
         #quit game
         if event.type == pygame.QUIT:
             telainicial=False
-
-    # tela.blit(fundobarra,(0, 0))
-    # pygame.draw.rect(tela, (white), (38,123,30,happybar))
-    # time.sleep(3)
 
 #button images
     water = pygame.image.load ("images/agua.png")
@@ -143,12 +134,11 @@ while telainicial==True:
     lua = pygame.image.load ("images/lua.png")
     tela.blit(lua,(460, 390))
     
-    #gatinho
-    tela.blit(gatinhomaior,(200,140))
+    #cat
+    tela.blit(bigcat,(200,140))
 
     #frame barra
     tela.blit(framebarra,(25,110))
-
 
     pygame.display.update()
  
