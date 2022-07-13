@@ -87,18 +87,20 @@ lua_img = button(460, 390,lua_img, 1)
 #TELA
 telainicial=True
 while telainicial==True:
+
+    tela.blit(fundobarra,(0, 0))
     
     if happybar>=0:
         pygame.draw.rect(tela, (white), (38,123,30,happybar))
-        happybar = happybar - 30
-        pygame.display.update()
-        tela.blit(fundobarra,(0, 0))
-        pygame.draw.rect(tela, (white), (38,123,30,happybar))
-        time.sleep(3)
+        happybar = happybar - 0.01
+        
+    else:
+        telainicial==False
     
     #funcionalid banho
     if (agua_img.draw(tela)):    
 
+        tela.blit(framebarra,(25,110))
         tela.blit(bubbles,(210, 80))                           
         pygame.mixer.Sound.play(bubblesound)
         pygame.mixer.music.stop()
@@ -106,10 +108,13 @@ while telainicial==True:
         time.sleep(6)
         tela.blit(gatinhomaior,(200,140))
         tela.blit(fundo,(0,0))
+
+        happybar = happybar + 10
     
     #funcionalid dormir
     if (lua_img.draw(tela)):    
 
+        tela.blit(framebarra,(25,110))
         tela.blit(fundoazul,(0,0))
         tela.blit(gatinhodormindo,(200,210))
         tela.blit(framebarra,(25,110))
@@ -124,7 +129,11 @@ while telainicial==True:
         if event.type == pygame.QUIT:
             telainicial=False
 
-   #button images
+    # tela.blit(fundobarra,(0, 0))
+    # pygame.draw.rect(tela, (white), (38,123,30,happybar))
+    # time.sleep(3)
+
+#button images
     water = pygame.image.load ("images/agua.png")
     tela.blit(water,(120, 395))
 
@@ -133,14 +142,12 @@ while telainicial==True:
 
     lua = pygame.image.load ("images/lua.png")
     tela.blit(lua,(460, 390))
-     
+    
     #gatinho
     tela.blit(gatinhomaior,(200,140))
 
     #frame barra
     tela.blit(framebarra,(25,110))
-
-    
 
 
     pygame.display.update()
