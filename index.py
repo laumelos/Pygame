@@ -82,19 +82,15 @@ lua_img = button(460, 390,lua_img, 1)
 telainicial=True
 while telainicial==True:
 
+    #barra
     tela.blit(fundobarra,(0, 0))
 
-    # if happybar>=0:
-    #     pygame.draw.rect(tela, (white), (38,123,30,happybar))
-    #     happybar = happybar - 0.008
-
-    if happybar>=0:
-        pygame.draw.rect(tela, (white), (38,happybar,30,230))
-        happybar = happybar + 0.008
-        tela.blit(teste,(15, 353))
-        
-    else:
-        telainicial==False
+    if happybar<=355:   
+        pygame.draw.rect(tela, (white), (38,happybar,30,230))  
+        happybar = happybar + 0.008     #velocidade
+        tela.blit(teste,(15, 353))           
+    else:   #perdeu
+        pygame.quit()
     
     #funcionalid banho
     if (agua_img.draw(tela)):    
@@ -108,7 +104,7 @@ while telainicial==True:
         tela.blit(bigcat,(200,140))
         tela.blit(fundo,(0,0))
 
-        happybar = happybar + 10
+        happybar = happybar - 10
     
     #funcionalid dormir
     if (lua_img.draw(tela)):    
@@ -125,8 +121,8 @@ while telainicial==True:
 
         happybar = happybar - 10
         
-    for event in pygame.event.get():
-        #quit game
+    #quit game x
+    for event in pygame.event.get():        
         if event.type == pygame.QUIT:
             telainicial=False
 
