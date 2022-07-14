@@ -13,7 +13,7 @@ pygame.mixer.init()
 white = (255,255,255)
 largura = 640
 altura = 480
-happybar = 230
+happybar = 123
 x = 0
 y = 0
 
@@ -27,6 +27,7 @@ fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
 framebarra = pygame.image.load ('images/framebar.png')
 fundobarra = pygame.image.load ('images/fundobarra.png')
+teste = pygame.image.load ('images/teste.png')
 
 #sounds load
 bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
@@ -83,9 +84,14 @@ while telainicial==True:
 
     tela.blit(fundobarra,(0, 0))
 
+    # if happybar>=0:
+    #     pygame.draw.rect(tela, (white), (38,123,30,happybar))
+    #     happybar = happybar - 0.008
+
     if happybar>=0:
-        pygame.draw.rect(tela, (white), (38,123,30,happybar))
-        happybar = happybar - 0.008
+        pygame.draw.rect(tela, (white), (38,happybar,30,230))
+        happybar = happybar + 0.008
+        tela.blit(teste,(15, 353))
         
     else:
         telainicial==False
@@ -117,7 +123,7 @@ while telainicial==True:
         time.sleep(4)
         tela.blit(fundo,(0,0))
 
-        happybar = happybar + 10
+        happybar = happybar - 10
         
     for event in pygame.event.get():
         #quit game
