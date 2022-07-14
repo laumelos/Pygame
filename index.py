@@ -20,7 +20,7 @@ y = 0
 #imagens load
 bubbles = pygame.image.load ('images/bolhas.png')
 coraçao = pygame.image.load ('images/coraçao.png')
-cat = pygame.image.load ('images/cat.png')
+#cat = pygame.image.load ('images/cat.png')
 bigcat = pygame.image.load ('images/bigcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
 fundo = pygame.image.load ("images/fundojogo.png")
@@ -71,12 +71,15 @@ agua_img = pygame.image.load("images/agua.png").convert_alpha()
 agua_img = button(120, 395, agua_img, 1)
 
 #button morango
-morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-morango_img = button(280, 390, morango_img, 1)
+# morango_img = pygame.image.load ("images/morango.png").convert_alpha()
+# morango_img = button(280, 390, morango_img, 1)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
 lua_img = button(460, 390,lua_img, 1)
+
+cat_img = pygame.image.load("images/bigcat.png").convert_alpha()
+cat_img = button(200,140, cat_img, 1)
 
 #TELA
 telainicial=True
@@ -130,14 +133,17 @@ while telainicial==True:
     water = pygame.image.load ("images/agua.png")
     tela.blit(water,(120, 395))
 
-    morango = pygame.image.load ("images/morango.png")
-    tela.blit(morango,(280, 390))
+    # morango = pygame.image.load ("images/morango.png")
+    # tela.blit(morango,(280, 390))
 
     lua = pygame.image.load ("images/lua.png")
     tela.blit(lua,(460, 390))
+
+    cat = pygame.image.load ("images/bigcat.png")
+    tela.blit(cat,(200,140))
     
     #cat
-    tela.blit(bigcat,(200,140))
+    #tela.blit(bigcat,(200,140))
 
     #frame barra
     tela.blit(framebarra,(25,110))
