@@ -11,6 +11,7 @@ pygame.mixer.init()
 
 #variáveis
 white = (255,255,255)
+black = (0,0,0)
 largura = 640
 altura = 480
 happybar = 123
@@ -115,19 +116,14 @@ while telainicial==True:
         tela.blit(cat,(245,200))
     
         #texto
-        txt='pet.com'                                
-        pygame.font.init()                                
-        fonte=pygame.font.get_default_font()              ##### fonte padrão
-        fontesys=pygame.font.SysFont(fonte, 60)           ##### fonte
-        txttela = fontesys.render(txt, 1, (0,0,0))        ##### cor
-        tela.blit(txttela,(240,100))                      ##### posição
-
-        txt2='Aperte espaço para jogar'                                
-        pygame.font.init()                                
-        fonte=pygame.font.get_default_font()              ##### fonte padrão
-        fontesys=pygame.font.SysFont(fonte, 40)           ##### fonte
-        txttela = fontesys.render(txt2, 1, (0,0,0))        ##### cor
-        tela.blit(txttela,(150,360))                      ##### posição
+        txt='pet.com'                                                          
+        fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+        txttela = fonte.render(txt, 1, (black))      
+        tela.blit(txttela,(230,100))                      
+        txt2='Aperte espaço para jogar'                      
+        fonte=pygame.font.Font('Minecraftia-Regular.ttf', 22)       
+        txttela = fonte.render(txt2, 1, (black))        
+        tela.blit(txttela,(150,360))               
         pygame.display.update()
     
     
