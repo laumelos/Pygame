@@ -142,8 +142,8 @@ while telainicial==True:
         water = pygame.image.load ("images/agua.png")
         tela.blit(water,(120, 395))
 
-        morango = pygame.image.load ("images/morango.png")
-        tela.blit(morango,(280, 390))
+        # morango = pygame.image.load ("images/morango.png")
+        # tela.blit(morango,(280, 390))
 
         lua = pygame.image.load ("images/lua.png")
         tela.blit(lua,(460, 390))
