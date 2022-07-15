@@ -14,7 +14,6 @@ white = (255,255,255)
 largura = 640
 altura = 480
 happybar = 123
-x = 0
 y = 0
 
 #imagens load
@@ -23,6 +22,7 @@ coraçao = pygame.image.load ('images/coraçao.png')
 cat = pygame.image.load ('images/cat.png')
 bigcat = pygame.image.load ('images/bigcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
+sleepz =  pygame.image.load ('images/sleepz.png')
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
 framebarra = pygame.image.load ('images/framebar.png')
@@ -32,6 +32,7 @@ teste = pygame.image.load ('images/teste.png')
 #sounds load
 bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
 sleepsound = pygame.mixer.Sound('sounds/gatinhodormindo.wav')
+#music = pygame.mixer.music.load('sounds/hip-hop-flute-chillloopable-by-chilledmusic-from-filmmusic-io.ogg')
 
 #tela
 tela = pygame.display.set_mode((largura,altura))
@@ -86,6 +87,7 @@ inicio = True
 jogo = False
 telainicial=True
 while telainicial==True:
+    
     if inicio == True:
         for event in pygame.event.get():
         #quit game
@@ -100,16 +102,18 @@ while telainicial==True:
         #atualiz tela
         pygame.draw.rect(tela, (white), (0,0,largura,altura))
         
+        
+
         #corações
-        if y  >= altura:
+        if y  >= altura+100:
             y = 0
         y = y + 1
     
-        tela.blit(coraçao,(x,y))
+        tela.blit(coraçao,(50,y))
     
-        tela.blit(coraçao,(320,-80 + y))
+        tela.blit(coraçao,(440,-100 + y))
     
-        tela.blit(coraçao,(440,-40 + y))
+        tela.blit(coraçao,(550,-40 + y))
     
         #gatinho
         tela.blit(cat,(245,200))
@@ -153,7 +157,7 @@ while telainicial==True:
 
         if happybar<=355:   
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.008     #velocidade
+            happybar = happybar + 0.04     #velocidade
             tela.blit(teste,(15, 353))
             tela.blit(framebarra,(25,110))           
         else:   #perdeu
@@ -179,6 +183,8 @@ while telainicial==True:
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
             tela.blit(sleepycat,(200,210))
+            tela.blit(sleepz,(200,210))
+            tela.blit(sleepz,(220,170))
             tela.blit(framebarra,(25,110))
             pygame.mixer.Sound.play(sleepsound)
             pygame.mixer.music.stop()
