@@ -122,11 +122,11 @@ while telainicial==True:
         txttela = fontesys.render(txt, 1, (0,0,0))        ##### cor
         tela.blit(txttela,(240,100))                      ##### posição
 
-        txt='Aperte espaço para jogar'                                
+        txt2='Aperte espaço para jogar'                                
         pygame.font.init()                                
         fonte=pygame.font.get_default_font()              ##### fonte padrão
         fontesys=pygame.font.SysFont(fonte, 40)           ##### fonte
-        txttela = fontesys.render(txt, 1, (0,0,0))        ##### cor
+        txttela = fontesys.render(txt2, 1, (0,0,0))        ##### cor
         tela.blit(txttela,(150,360))                      ##### posição
         pygame.display.update()
     
