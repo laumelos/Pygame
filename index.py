@@ -4,6 +4,7 @@ from pygame.locals import *
 from sys import exit
 import time
 import pygame.sprite
+from pygame import mixer
  
 pygame.init()
 pygame.font.init()
@@ -32,14 +33,14 @@ fundobarra = pygame.image.load ('images/fundobarra.png')
 teste = pygame.image.load ('images/teste.png')
 
 #sounds load
-bubblesound = pygame.mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
-sleepsound = pygame.mixer.Sound('sounds/gatinhodormindo.wav')
-#music = pygame.mixer.music.load('sounds/hip-hop-flute-chillloopable-by-chilledmusic-from-filmmusic-io.ogg')
+bubblesound = mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
+sleepsound = mixer.Sound('sounds/gatinhodormindo.wav')
+mixer.music.load('sounds/backgroundmusic.wav')
+mixer.music.play(-1)
 
 #tela
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
-
 
 #button class
 class button():
@@ -155,8 +156,7 @@ while telainicial==True:
             happybar = happybar + 0.04     #velocidade
             tela.blit(teste,(15, 353))
             tela.blit(framebarra,(25,110))
-        # else:
-        #     pygame.quit()         
+      
         else:
             tela.blit(fundo,(0,0))
             tela.blit(sadcat,(190,155))
@@ -174,8 +174,7 @@ while telainicial==True:
 
             tela.blit(framebarra,(25,110))
             tela.blit(bubbles,(210, 80))                           
-            pygame.mixer.Sound.play(bubblesound)
-            pygame.mixer.music.stop()
+            bubblesound.play()
             pygame.display.update()                                 
             time.sleep(6)
             tela.blit(bigcat,(200,140))
@@ -192,8 +191,7 @@ while telainicial==True:
             tela.blit(sleepz,(200,210))
             tela.blit(sleepz,(220,170))
             tela.blit(framebarra,(25,110))
-            pygame.mixer.Sound.play(sleepsound)
-            pygame.mixer.music.stop()
+            sleepsound.play()
             pygame.display.update()
             time.sleep(4)
             tela.blit(fundo,(0,0))
