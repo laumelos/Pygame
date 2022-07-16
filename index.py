@@ -31,6 +31,9 @@ fundoazul = pygame.image.load ('images/fundoazul.png')
 framebarra = pygame.image.load ('images/framebar.png')
 fundobarra = pygame.image.load ('images/fundobarra.png')
 teste = pygame.image.load ('images/teste.png')
+morango = pygame.image.load ("images/morango.png")
+morangomord = pygame.image.load ("images/morangomord.png")
+stain = pygame.image.load ('images/stain.png')
 
 #sounds load
 bubblesound = mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
@@ -75,8 +78,8 @@ agua_img = pygame.image.load("images/agua.png").convert_alpha()
 agua_img = button(120, 395, agua_img, 1)
 
 #button morango
-# morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-# morango_img = button(280, 390, morango_img, 1)
+morango_img = pygame.image.load ("images/morango.png").convert_alpha()
+morango_img = button(280, 390, morango_img, 1)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
@@ -90,7 +93,8 @@ inicio = True
 jogo = False
 fim = False
 telainicial=True
-while telainicial==True:
+
+while telainicial:
     
     if inicio == True:
         for event in pygame.event.get():
@@ -123,14 +127,15 @@ while telainicial==True:
         txt='pet.com'                                                          
         fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
         txttela = fonte.render(txt, 1, (black))      
-        tela.blit(txttela,(230,100))                      
+        tela.blit(txttela,(230,100))    
+
         txt2='Aperte espaço para jogar'                      
         fonte=pygame.font.Font('Minecraftia-Regular.ttf', 22)       
         txttela = fonte.render(txt2, 1, (black))        
         tela.blit(txttela,(150,360))               
         pygame.display.update()
     
-    if jogo == True:
+    elif jogo == True:
         
         #barra
         tela.blit(fundo,(0,0))
@@ -178,19 +183,26 @@ while telainicial==True:
             pygame.display.update()                                 
             time.sleep(6)
             tela.blit(bigcat,(200,140))
-            tela.blit(fundo,(0,0))
+            tela.blit(fundoazul,(0,0))
 
             happybar = happybar - 10
-        
+
+        if (morango_img.draw(tela)):
+            tela.blit(stain,(295, 195)) 
+            tela.blit(morangomord,(310, 220)) 
+            pygame.display.update()  
+            time.sleep(4)
+            
+            
+            
         #funcionalid dormir
-        if (lua_img.draw(tela)):    
+        if (lua_img.draw(tela)):  
 
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
             tela.blit(sleepycat,(200,210))
             tela.blit(sleepz,(200,210))
             tela.blit(sleepz,(220,170))
-            tela.blit(framebarra,(25,110))
             sleepsound.play()
             pygame.display.update()
             time.sleep(4)
@@ -202,11 +214,6 @@ while telainicial==True:
         for event in pygame.event.get():        
             if event.type == pygame.QUIT:
                 telainicial=False
-
-    # if fim == True:
-    #     tela.blit(fundo,(0,0))
-    #     tela.blit(sadcat,(200,140))
-
 
         pygame.display.update()
  
