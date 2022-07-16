@@ -152,7 +152,7 @@ while telainicial==True:
 
         if happybar<=355:   
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.5     #velocidade
+            happybar = happybar + 0.04     #velocidade
             tela.blit(teste,(15, 353))
             tela.blit(framebarra,(25,110))
         # else:
@@ -164,12 +164,10 @@ while telainicial==True:
             txtfim='fim do jogo'                                                          
             fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
             txttela = fonte.render(txtfim, 1, (black))      
-            tela.blit(txttela,(200,100))    
-
-
-
-            #fim = True   #perdeu
-            #pygame.quit()
+            tela.blit(txttela,(200,100))
+            pygame.display.update()   
+            time.sleep(6) 
+            pygame.quit()
         
         #funcionalid banho
         if (agua_img.draw(tela)):    
