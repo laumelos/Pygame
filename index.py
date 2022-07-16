@@ -22,6 +22,7 @@ bubbles = pygame.image.load ('images/bolhas.png')
 coraçao = pygame.image.load ('images/coraçao.png')
 cat = pygame.image.load ('images/cat.png')
 bigcat = pygame.image.load ('images/bigcat.png')
+sadcat = pygame.image.load ('images/sadcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
 sleepz =  pygame.image.load ('images/sleepz.png')
 fundo = pygame.image.load ("images/fundojogo.png")
@@ -86,6 +87,7 @@ cat_img = button(200,140, cat_img, 1)
 #TELA
 inicio = True
 jogo = False
+fim = False
 telainicial=True
 while telainicial==True:
     
@@ -98,13 +100,10 @@ while telainicial==True:
                 if event.key == pygame.K_SPACE:
                     inicio = False
                     jogo = True
-        #pygame.time
         
         #atualiz tela
-        pygame.draw.rect(tela, (white), (0,0,largura,altura))
-        
-        
-
+        tela.fill(white)
+     
         #corações
         if y  >= altura+100:
             y = 0
@@ -130,8 +129,8 @@ while telainicial==True:
         tela.blit(txttela,(150,360))               
         pygame.display.update()
     
-    
     if jogo == True:
+        
         #barra
         tela.blit(fundo,(0,0))
         pygame.draw.rect(tela, (white), (38,happybar,30,230)) 
@@ -142,8 +141,8 @@ while telainicial==True:
         water = pygame.image.load ("images/agua.png")
         tela.blit(water,(120, 395))
 
-        # morango = pygame.image.load ("images/morango.png")
-        # tela.blit(morango,(280, 390))
+        morango = pygame.image.load ("images/morango.png")
+        tela.blit(morango,(280, 390))
 
         lua = pygame.image.load ("images/lua.png")
         tela.blit(lua,(460, 390))
@@ -153,11 +152,24 @@ while telainicial==True:
 
         if happybar<=355:   
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.04     #velocidade
+            happybar = happybar + 0.5     #velocidade
             tela.blit(teste,(15, 353))
-            tela.blit(framebarra,(25,110))           
-        else:   #perdeu
-            pygame.quit()
+            tela.blit(framebarra,(25,110))
+        # else:
+        #     pygame.quit()         
+        else:
+            tela.blit(fundo,(0,0))
+            tela.blit(sadcat,(190,155))
+        
+            txtfim='fim do jogo'                                                          
+            fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+            txttela = fonte.render(txtfim, 1, (black))      
+            tela.blit(txttela,(200,100))    
+
+
+
+            #fim = True   #perdeu
+            #pygame.quit()
         
         #funcionalid banho
         if (agua_img.draw(tela)):    
@@ -194,6 +206,11 @@ while telainicial==True:
         for event in pygame.event.get():        
             if event.type == pygame.QUIT:
                 telainicial=False
+
+    # if fim == True:
+    #     tela.blit(fundo,(0,0))
+    #     tela.blit(sadcat,(200,140))
+
 
         pygame.display.update()
  
