@@ -36,7 +36,7 @@ morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
 
 #sounds load
-catsound = mixer.Sound ('182307__crazy-sam__miau-[AudioTrimmer.com].wav')
+catsound = mixer.Sound('sounds/182307__crazy-sam__miau-[AudioTrimmer.com].wav')
 bubblesound = mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
 sleepsound = mixer.Sound('sounds/gatinhodormindo.wav')
 mixer.music.load('sounds/backgroundmusic.wav')
