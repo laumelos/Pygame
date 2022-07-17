@@ -36,6 +36,7 @@ morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
 
 #sounds load
+catsound = mixer.Sound ('182307__crazy-sam__miau-[AudioTrimmer.com].wav')
 bubblesound = mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
 sleepsound = mixer.Sound('sounds/gatinhodormindo.wav')
 mixer.music.load('sounds/backgroundmusic.wav')
@@ -187,13 +188,18 @@ while telainicial:
 
             happybar = happybar - 10
 
+
+        if (cat_img.draw(tela)):
+            catsound.play()
+ 
         if (morango_img.draw(tela)):
             tela.blit(stain,(295, 195)) 
             tela.blit(morangomord,(310, 220)) 
             pygame.display.update()  
             time.sleep(4)
             
-            
+        
+
             
         #funcionalid dormir
         if (lua_img.draw(tela)):  
