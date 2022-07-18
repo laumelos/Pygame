@@ -36,9 +36,11 @@ morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
 
 #sounds load
-catsound = mixer.Sound('sounds/182307__crazy-sam__miau-[AudioTrimmer.com].wav')
-bubblesound = mixer.Sound('sounds/539823__ristooooo1__bubbles-001.wav')
-sleepsound = mixer.Sound('sounds/gatinhodormindo.wav')
+miausound = mixer.Sound('sounds/miausound.wav')
+bubblesound = mixer.Sound('sounds/bubblesound.wav')
+sleepsound = mixer.Sound('sounds/sleepsound.wav')
+chewsound = mixer.Sound('sounds/chewsound.wav')
+clicksound = mixer.Sound('sounds/clicksound.wav')
 mixer.music.load('sounds/backgroundmusic.wav')
 mixer.music.play(-1)
 
@@ -104,6 +106,7 @@ while telainicial:
                 telainicial=False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    clicksound.play()
                     inicio = False
                     jogo = True
         
@@ -182,25 +185,30 @@ while telainicial:
             tela.blit(bubbles,(210, 80))                           
             bubblesound.play()
             pygame.display.update()                                 
-            time.sleep(6)
+            time.sleep(5)
             tela.blit(bigcat,(200,140))
             tela.blit(fundoazul,(0,0))
 
             happybar = happybar - 10
 
-
+        #funcionalid pet
         if (cat_img.draw(tela)):
-            catsound.play()
- 
+            miausound.play()
+            tela.blit(coraçao,(370,120))
+            pygame.display.update() 
+            time.sleep(1) 
+            happybar = happybar - 5
+
+        #funcionalid comer
         if (morango_img.draw(tela)):
             tela.blit(stain,(295, 195)) 
-            tela.blit(morangomord,(310, 220)) 
+            tela.blit(morangomord,(310, 220))
+            chewsound.play()
             pygame.display.update()  
-            time.sleep(4)
-            
-        
+            time.sleep(3)
 
-            
+            happybar = happybar - 10
+ 
         #funcionalid dormir
         if (lua_img.draw(tela)):  
 
@@ -211,7 +219,7 @@ while telainicial:
             tela.blit(sleepz,(220,170))
             sleepsound.play()
             pygame.display.update()
-            time.sleep(4)
+            time.sleep(5)
             tela.blit(fundo,(0,0))
 
             happybar = happybar - 10
