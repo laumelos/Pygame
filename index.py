@@ -189,7 +189,10 @@ while telainicial:
             tela.blit(bigcat,(200,140))
             tela.blit(fundoazul,(0,0))
 
-            happybar = happybar - 10
+            if (happybar - 10 < 123):
+                happybar = happybar + (123-happybar)
+            else:
+                happybar = happybar - 10
 
         #funcionalid pet
         if (cat_img.draw(tela)):
@@ -197,7 +200,11 @@ while telainicial:
             tela.blit(coraçao,(370,120))
             pygame.display.update() 
             time.sleep(1) 
-            happybar = happybar - 5
+
+            if (happybar - 10 < 123):
+                happybar = happybar + (123-happybar)
+            else:
+                happybar = happybar - 5
 
         #funcionalid comer
         if (morango_img.draw(tela)):
@@ -207,7 +214,10 @@ while telainicial:
             pygame.display.update()  
             time.sleep(3)
 
-            happybar = happybar - 10
+            if (happybar - 10 < 123):
+                happybar = happybar + (123-happybar)
+            else:
+                happybar = happybar - 10
  
         #funcionalid dormir
         if (lua_img.draw(tela)):  
@@ -222,7 +232,10 @@ while telainicial:
             time.sleep(5)
             tela.blit(fundo,(0,0))
 
-            happybar = happybar - 10
+            if (happybar - 10 < 123):
+                happybar = happybar + (123-happybar)
+            else:
+                happybar = happybar - 10
             
         #quit game x
         for event in pygame.event.get():        
