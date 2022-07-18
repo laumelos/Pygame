@@ -1,4 +1,4 @@
-from typing import List
+from typing import List ##
 import pygame
 from pygame.locals import *
 from sys import exit
@@ -89,6 +89,7 @@ morango_img = button(280, 390, morango_img, 1)
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
 lua_img = button(460, 390,lua_img, 1)
 
+#button cat
 cat_img = pygame.image.load("images/bigcat.png").convert_alpha()
 cat_img = button(200,140, cat_img, 1)
 
