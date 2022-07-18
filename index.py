@@ -41,6 +41,7 @@ bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
 clicksound = mixer.Sound('sounds/clicksound.wav')
+gameoversound = mixer.Sound('sounds/gameoversound.wav')
 mixer.music.load('sounds/backgroundmusic.wav')
 mixer.music.play(-1)
 
@@ -169,7 +170,9 @@ while telainicial:
         else:
             tela.blit(fundo,(0,0))
             tela.blit(sadcat,(190,155))
-        
+            
+            mixer.music.stop()
+            gameoversound.play()
             txtfim='fim do jogo'                                                          
             fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
             txttela = fonte.render(txtfim, 1, (black))      
