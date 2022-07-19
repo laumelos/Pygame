@@ -30,9 +30,10 @@ stain = pygame.image.load ('images/stain.png')
 framebarra = pygame.image.load ('images/framebar.png')
 #cat variations
 cat = pygame.image.load ('images/cat.png')
-bigcat = pygame.image.load ('images/bigcat.png')
+bigcat = pygame.image.load ('images/bigcatteste.png')
 sadcat = pygame.image.load ('images/sadcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
+rabocat = pygame.image.load('images/rabocat.png')
 #fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
@@ -42,6 +43,7 @@ fundobarra = pygame.image.load ('images/fundobarra.png')
 
 #sounds
 miausound = mixer.Sound('sounds/miausound.wav')
+catbravosound = mixer.Sound('sounds/catbravosound.wav')
 bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
@@ -99,8 +101,11 @@ lua_img = pygame.image.load("images/lua.png").convert_alpha()
 lua_img = button(460, 390,lua_img, 1)
 
 #button cat
-cat_img = pygame.image.load("images/bigcat.png").convert_alpha()
-cat_img = button(200,140, cat_img, 1)
+cat_img = pygame.image.load("images/bigcatteste.png").convert_alpha()
+cat_img = button(230,142, cat_img, 1)
+
+rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
+rabocat_img = button(390,290, rabocat_img, 1)
 
 #TELAS
 
@@ -176,8 +181,8 @@ while telainicial:
         lua = pygame.image.load ("images/lua.png")
         tela.blit(lua,(460, 390))
 
-        cat = pygame.image.load ("images/bigcat.png")
-        tela.blit(cat,(200,140))
+        # cat = pygame.image.load ("images/bigcatteste.png")
+        # tela.blit(cat,(210,142))
 
         #enquanto a barra não acaba ela se move
         if happybar<=355:   
@@ -270,6 +275,14 @@ while telainicial:
                 happybar = happybar + (123-happybar)
             else:
                 happybar = happybar - 5
+                
+        if (rabocat_img.draw(tela)):
+            #images
+            #sounds
+            catbravosound.play()
+            #wait
+            pygame.display.update() 
+            time.sleep(1) 
             
         #fechar jogo no x
         for event in pygame.event.get():        
