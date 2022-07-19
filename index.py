@@ -1,11 +1,11 @@
-from typing import List ##
+#imports
 import pygame
 from pygame.locals import *
 from sys import exit
 import time
-import pygame.sprite
 from pygame import mixer
- 
+
+#inits
 pygame.init()
 pygame.font.init()
 pygame.mixer.init()
@@ -18,36 +18,45 @@ altura = 480
 happybar = 123
 y = 0
 
-#imagens load
+#IMAGES LOAD
+
+#icons
 bubbles = pygame.image.load ('images/bolhas.png')
 coraçao = pygame.image.load ('images/coraçao.png')
+sleepz =  pygame.image.load ('images/sleepz.png')
+morango = pygame.image.load ("images/morango.png")
+morangomord = pygame.image.load ("images/morangomord.png")
+stain = pygame.image.load ('images/stain.png')
+framebarra = pygame.image.load ('images/framebar.png')
+#cat variations
 cat = pygame.image.load ('images/cat.png')
 bigcat = pygame.image.load ('images/bigcat.png')
 sadcat = pygame.image.load ('images/sadcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
-sleepz =  pygame.image.load ('images/sleepz.png')
+#fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
-framebarra = pygame.image.load ('images/framebar.png')
 fundobarra = pygame.image.load ('images/fundobarra.png')
-teste = pygame.image.load ('images/teste.png')
-morango = pygame.image.load ("images/morango.png")
-morangomord = pygame.image.load ("images/morangomord.png")
-stain = pygame.image.load ('images/stain.png')
 
-#sounds load
+#SOUNDS LOAD
+
+#sounds
 miausound = mixer.Sound('sounds/miausound.wav')
 bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
 clicksound = mixer.Sound('sounds/clicksound.wav')
 gameoversound = mixer.Sound('sounds/gameoversound.wav')
+#music
 mixer.music.load('sounds/backgroundmusic.wav')
 mixer.music.play(-1)
 
-#tela
+#TELA
+
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption("pet.com")
+
+#BUTTON
 
 #button class
 class button():
@@ -93,7 +102,8 @@ lua_img = button(460, 390,lua_img, 1)
 cat_img = pygame.image.load("images/bigcat.png").convert_alpha()
 cat_img = button(200,140, cat_img, 1)
 
-#TELA
+#TELAS
+
 inicio = True
 jogo = False
 fim = False
@@ -101,18 +111,20 @@ telainicial=True
 
 while telainicial:
     
+    #tela inicio
     if inicio == True:
         for event in pygame.event.get():
-        #quit game
+            #fechar jogo no x
             if event.type == pygame.QUIT:
                 telainicial=False
+            #fechar tela inicio e abrir tela jogo quando clicar no espaço
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     clicksound.play()
                     inicio = False
                     jogo = True
         
-        #atualiz tela
+        #fundo branco
         tela.fill(white)
      
         #corações
@@ -126,27 +138,32 @@ while telainicial:
     
         tela.blit(coraçao,(550,-40 + y))
     
-        #gatinho
+        #cat
         tela.blit(cat,(245,200))
     
-        #texto
-        txt='pet.com'                                                          
-        fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
-        txttela = fonte.render(txt, 1, (black))      
-        tela.blit(txttela,(230,100))    
+        #TEXTO
 
+        #texto 1
+        txt='pet.com'                                                          
+        fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+        txttela = fontetxt.render(txt, 1, (black))      
+        tela.blit(txttela,(230,100))    
+        #texto 2
         txt2='Aperte espaço para jogar'                      
-        fonte=pygame.font.Font('Minecraftia-Regular.ttf', 22)       
-        txttela = fonte.render(txt2, 1, (black))        
-        tela.blit(txttela,(150,360))               
+        fontetxt2=pygame.font.Font('Minecraftia-Regular.ttf', 22)       
+        txttela2 = fontetxt2.render(txt2, 1, (black))        
+        tela.blit(txttela2,(150,360))               
         pygame.display.update()
     
+    #tela jogo
     elif jogo == True:
         
-        #barra
+        #papel de parede jogo
         tela.blit(fundo,(0,0))
+
+        #barra de felicide
         pygame.draw.rect(tela, (white), (38,happybar,30,230)) 
-        tela.blit(teste,(15, 353))
+        tela.blit(fundobarra,(15, 353))
         tela.blit(framebarra,(25,110))
   
         #button images
@@ -162,62 +179,59 @@ while telainicial:
         cat = pygame.image.load ("images/bigcat.png")
         tela.blit(cat,(200,140))
 
+        #enquanto a barra não acaba ela se move
         if happybar<=355:   
+            #movmento barra de felicidade
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.04     #velocidade
-            tela.blit(teste,(15, 353))
+            happybar = happybar + 0.05                #velocidade
+            tela.blit(fundobarra,(15, 353))
             tela.blit(framebarra,(25,110))
       
+        #barra acaba = jogo acaba
         else:
+            #gato triste
             tela.blit(fundo,(0,0))
             tela.blit(sadcat,(190,155))
-            
+            #som
             mixer.music.stop()
             gameoversound.play()
+            #texto
             txtfim='fim do jogo'                                                          
-            fonte=pygame.font.Font('Minecraftia-Regular.ttf', 40)
-            txttela = fonte.render(txtfim, 1, (black))      
-            tela.blit(txttela,(200,100))
+            fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+            txtfimtela = fontetxt.render(txtfim, 1, (black))      
+            tela.blit(txtfimtela,(200,100))
+            #fim do jogo
             pygame.display.update()   
-            time.sleep(6) 
+            time.sleep(4)
             pygame.quit()
         
         #funcionalid banho
         if (agua_img.draw(tela)):    
-
+            #images
             tela.blit(framebarra,(25,110))
-            tela.blit(bubbles,(210, 80))                           
+            tela.blit(bubbles,(210, 80))
+            #sounds                        
             bubblesound.play()
+            #wait
             pygame.display.update()                                 
             time.sleep(5)
-            tela.blit(bigcat,(200,140))
-            tela.blit(fundoazul,(0,0))
-
+            #+10 felicidade
             if (happybar - 10 < 123):
                 happybar = happybar + (123-happybar)
             else:
                 happybar = happybar - 10
 
-        #funcionalid pet
-        if (cat_img.draw(tela)):
-            miausound.play()
-            tela.blit(coraçao,(370,120))
-            pygame.display.update() 
-            time.sleep(1) 
-
-            if (happybar - 10 < 123):
-                happybar = happybar + (123-happybar)
-            else:
-                happybar = happybar - 5
-
         #funcionalid comer
         if (morango_img.draw(tela)):
+            #images
             tela.blit(stain,(295, 195)) 
             tela.blit(morangomord,(310, 220))
+            #sounds
             chewsound.play()
+            #wait
             pygame.display.update()  
             time.sleep(3)
-
+            #+10 felicidade
             if (happybar - 10 < 123):
                 happybar = happybar + (123-happybar)
             else:
@@ -225,23 +239,39 @@ while telainicial:
  
         #funcionalid dormir
         if (lua_img.draw(tela)):  
-
+            #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
             tela.blit(sleepycat,(200,210))
             tela.blit(sleepz,(200,210))
             tela.blit(sleepz,(220,170))
+            #sounds
             sleepsound.play()
+            #wait
             pygame.display.update()
             time.sleep(5)
-            tela.blit(fundo,(0,0))
-
+            #+10 felicidade
             if (happybar - 10 < 123):
                 happybar = happybar + (123-happybar)
             else:
                 happybar = happybar - 10
+
+        #funcionalid pet
+        if (cat_img.draw(tela)):
+            #images
+            tela.blit(coraçao,(370,120))
+            #sounds
+            miausound.play()
+            #wait
+            pygame.display.update() 
+            time.sleep(1) 
+            #+5 felicidade
+            if (happybar - 10 < 123):
+                happybar = happybar + (123-happybar)
+            else:
+                happybar = happybar - 5
             
-        #quit game x
+        #fechar jogo no x
         for event in pygame.event.get():        
             if event.type == pygame.QUIT:
                 telainicial=False
