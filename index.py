@@ -28,9 +28,15 @@ morango = pygame.image.load ("images/morango.png")
 morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
 framebarra = pygame.image.load ('images/framebar.png')
+angryface = pygame.image.load ('images/angryface.png')
+
+lua = pygame.image.load ("images/lua.png")
+morango = pygame.image.load ("images/morango.png")
+water = pygame.image.load ("images/agua.png")
 #cat variations
-cat = pygame.image.load ('images/cat.png')
-bigcat = pygame.image.load ('images/bigcatteste.png')
+littlecat = pygame.image.load ('images/littlecat.png')
+cat = pygame.image.load ("images/cat.png")
+catcorpo = pygame.image.load ('images/catcorpo.png')
 sadcat = pygame.image.load ('images/sadcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
 rabocat = pygame.image.load('images/rabocat.png')
@@ -43,7 +49,7 @@ fundobarra = pygame.image.load ('images/fundobarra.png')
 
 #sounds
 miausound = mixer.Sound('sounds/miausound.wav')
-catbravosound = mixer.Sound('sounds/catbravosound.wav')
+catscreamsound = mixer.Sound('sounds/catscreamsound.wav')
 bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
@@ -101,11 +107,11 @@ lua_img = pygame.image.load("images/lua.png").convert_alpha()
 lua_img = button(460, 390,lua_img, 1)
 
 #button cat
-cat_img = pygame.image.load("images/bigcatteste.png").convert_alpha()
-cat_img = button(230,142, cat_img, 1)
+catcorpo_img = pygame.image.load("images/catcorpo.png").convert_alpha()
+cat_img = button(231,142, catcorpo_img, 1)
 
 rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
-rabocat_img = button(390,290, rabocat_img, 1)
+rabocat_img = button(392,291, rabocat_img, 1)
 
 #TELAS
 
@@ -144,7 +150,7 @@ while telainicial:
         tela.blit(coraçao,(550,-40 + y))
     
         #cat
-        tela.blit(cat,(245,200))
+        tela.blit(littlecat,(245,200))
     
         #TEXTO
 
@@ -170,25 +176,22 @@ while telainicial:
         pygame.draw.rect(tela, (white), (38,happybar,30,230)) 
         tela.blit(fundobarra,(15, 353))
         tela.blit(framebarra,(25,110))
+
+        #cat image
+        tela.blit(cat,(200,142))
   
         #button images
-        water = pygame.image.load ("images/agua.png")
         tela.blit(water,(120, 395))
 
-        morango = pygame.image.load ("images/morango.png")
         tela.blit(morango,(280, 390))
 
-        lua = pygame.image.load ("images/lua.png")
         tela.blit(lua,(460, 390))
-
-        # cat = pygame.image.load ("images/bigcatteste.png")
-        # tela.blit(cat,(210,142))
 
         #enquanto a barra não acaba ela se move
         if happybar<=355:   
             #movmento barra de felicidade
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.05                #velocidade
+            happybar = happybar + 0.06                #velocidade
             tela.blit(fundobarra,(15, 353))
             tela.blit(framebarra,(25,110))
       
@@ -278,11 +281,12 @@ while telainicial:
                 
         if (rabocat_img.draw(tela)):
             #images
+            tela.blit(angryface,(273,186))
             #sounds
-            catbravosound.play()
+            catscreamsound.play()
             #wait
             pygame.display.update() 
-            time.sleep(1) 
+            time.sleep(2) 
             
         #fechar jogo no x
         for event in pygame.event.get():        
