@@ -29,7 +29,6 @@ morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
 framebarra = pygame.image.load ('images/framebar.png')
 angryface = pygame.image.load ('images/angryface.png')
-
 lua = pygame.image.load ("images/lua.png")
 morango = pygame.image.load ("images/morango.png")
 water = pygame.image.load ("images/agua.png")
@@ -68,50 +67,46 @@ pygame.display.set_caption("pet.com")
 
 #button class
 class button():
-    def __init__(self, x, y, image, scale):
-        width = image.get_width()
-        height = image.get_height()
-        self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
+    def __init__(self, x, y, image):
+        self.image = image
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.clicked = False
  
     def draw(self, surface):
         action = False
-        #get mouse position
+        #posição do mouse
         pos = pygame.mouse.get_pos()
- 
-        #check mouseover and clicked conditions
+        #checar se foi o botão foi clicado
         if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
+            if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False: #[0] = botão esquerdo do mouse
                 self.clicked = True
                 action = True
         if pygame.mouse.get_pressed()[0] == 0:
                 self.clicked = False
- 
-        #draw button on screen
+        #print botão na tela
         surface.blit(self.image, (self.rect.x, self.rect.y))
  
         return action
  
 #button agua
 agua_img = pygame.image.load("images/agua.png").convert_alpha()
-agua_img = button(120, 395, agua_img, 1)
+agua_img = button(120, 395, agua_img)
 
 #button morango
 morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-morango_img = button(280, 390, morango_img, 1)
+morango_img = button(280, 390, morango_img)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
-lua_img = button(460, 390,lua_img, 1)
+lua_img = button(460, 390,lua_img)
 
 #button cat
 catcorpo_img = pygame.image.load("images/catcorpo.png").convert_alpha()
-cat_img = button(231,142, catcorpo_img, 1)
+cat_img = button(231,142, catcorpo_img)
 
 rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
-rabocat_img = button(392,291, rabocat_img, 1)
+rabocat_img = button(392,291, rabocat_img)
 
 #TELAS
 
