@@ -279,6 +279,7 @@ while telainicial:
             else:
                 happybar = happybar - 5
                 
+        #funcionalid rabo do gato
         if (rabocat_img.draw(tela)):
             #images
             tela.blit(angryface,(273,186))
@@ -286,7 +287,9 @@ while telainicial:
             catscreamsound.play()
             #wait
             pygame.display.update() 
-            time.sleep(2) 
+            time.sleep(2)
+            #-5 felicidade
+            happybar = happybar - 5 
             
         #fechar jogo no x
         for event in pygame.event.get():        
