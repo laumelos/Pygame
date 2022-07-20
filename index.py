@@ -19,17 +19,17 @@ y = 0
 #IMAGES LOAD
 
 #icons
-bubbles = pygame.image.load ('images/bolhas.png')
-coraçao = pygame.image.load ('images/coraçao.png')
-sleepz =  pygame.image.load ('images/sleepz.png')
-morango = pygame.image.load ("images/morango.png")
-morangomord = pygame.image.load ("images/morangomord.png")
-stain = pygame.image.load ('images/stain.png')
-framebarra = pygame.image.load ('images/framebar.png')
-angryface = pygame.image.load ('images/angryface.png')
 lua = pygame.image.load ("images/lua.png")
 morango = pygame.image.load ("images/morango.png")
 water = pygame.image.load ("images/agua.png")
+bubbles = pygame.image.load ('images/bolhas.png')
+coraçao = pygame.image.load ('images/coraçao.png')
+sleepz =  pygame.image.load ('images/sleepz.png')
+morangomord = pygame.image.load ("images/morangomord.png")
+stain = pygame.image.load ('images/stain.png')
+angryface = pygame.image.load ('images/angryface.png')
+framebarra = pygame.image.load ('images/framebar.png')
+
 #cat variations
 littlecat = pygame.image.load ('images/littlecat.png')
 cat = pygame.image.load ("images/cat.png")
