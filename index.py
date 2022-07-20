@@ -111,7 +111,6 @@ rabocat_img = button(392,291, rabocat_img)
 
 inicio = True
 jogo = False
-fim = False
 telainicial=True
 
 while telainicial:
