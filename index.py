@@ -1,7 +1,5 @@
 #imports
 import pygame
-from pygame.locals import *
-from sys import exit
 import time
 from pygame import mixer
 
@@ -105,6 +103,7 @@ lua_img = button(460, 390,lua_img)
 catcorpo_img = pygame.image.load("images/catcorpo.png").convert_alpha()
 cat_img = button(231,142, catcorpo_img)
 
+#button rabo cat
 rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
 rabocat_img = button(392,291, rabocat_img)
 
@@ -139,9 +138,7 @@ while telainicial:
         y = y + 1
     
         tela.blit(coraçao,(50,y))
-    
         tela.blit(coraçao,(440,-100 + y))
-    
         tela.blit(coraçao,(550,-40 + y))
     
         #cat
@@ -177,14 +174,12 @@ while telainicial:
   
         #button images
         tela.blit(water,(120, 395))
-
         tela.blit(morango,(280, 390))
-
         tela.blit(lua,(460, 390))
 
         #enquanto a barra não acaba ela se move
         if happybar<=355:   
-            #movmento barra de felicidade
+            #movimento barra de felicidade
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
             happybar = happybar + 0.06                #velocidade
             tela.blit(fundobarra,(15, 353))
@@ -284,7 +279,7 @@ while telainicial:
             pygame.display.update() 
             time.sleep(2)
             #-5 felicidade
-            happybar = happybar - 5 
+            happybar = happybar + 5 
             
         #fechar jogo no x
         for event in pygame.event.get():        
