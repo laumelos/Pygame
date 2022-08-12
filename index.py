@@ -25,19 +25,17 @@ water = pygame.image.load ("images/agua.png")
 bubbles = pygame.image.load ('images/bolhas.png')
 coraçao = pygame.image.load ('images/coraçao.png')
 sleepz =  pygame.image.load ('images/sleepz.png')
-morangomord = pygame.image.load ("images/morangomord.png")
 stain = pygame.image.load ('images/stain.png')
-angryface = pygame.image.load ('images/angryface.png')
 framebarra = pygame.image.load ('images/framebar.png')
 
 #cat variations
-littlecat = pygame.image.load ('images/littlecat.png')
+paipqn = pygame.image.load ('images/paipqn.png')
 cat = pygame.image.load ("images/cat.png")
 skinsuada = pygame.image.load ("images/skinsuada.png")
 catcorpo = pygame.image.load ('images/catcorpo.png')
 sadcat = pygame.image.load ('images/sadcat.png')
-sleepycat =  pygame.image.load ('images/sleepycat.png')
-rabocat = pygame.image.load('images/rabocat.png')
+skindormir =  pygame.image.load ('images/skindormir.png')
+bike = pygame.image.load('images/bike.png')
 # fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
@@ -46,7 +44,6 @@ fundobarra = pygame.image.load ('images/fundobarra.png')
 #SOUNDS LOAD
 
 #sounds
-miausound = mixer.Sound('sounds/miausound.wav')
 catscreamsound = mixer.Sound('sounds/catscreamsound.wav')
 bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
@@ -98,15 +95,15 @@ morango_img = button(250, 390, morango_img)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
-lua_img = button(460, 390,lua_img)
+lua_img = button(470, 390,lua_img)
 
 #button cat
 catcorpo_img = pygame.image.load("images/catcorpo.png").convert_alpha()
 cat_img = button(231,142, catcorpo_img)
 
 #button rabo cat
-rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
-rabocat_img = button(392,390, rabocat_img)
+bike_img = pygame.image.load("images/bike.png").convert_alpha()
+bike_img = button(342,390, bike_img)
 
 #TELAS
 
@@ -142,7 +139,7 @@ while telainicial:
         tela.blit(coraçao,(550,-40 + y))
     
         #cat
-        tela.blit(littlecat,(270,200))
+        tela.blit(paipqn,(270,200))
     
         #TEXTO
 
@@ -175,7 +172,8 @@ while telainicial:
         #button images
         tela.blit(water,(120, 395))
         tela.blit(morango,(250, 390))
-        tela.blit(lua,(460, 390))
+        tela.blit(bike,(342,390))
+        tela.blit(lua,(470, 390))
 
         #enquanto a barra não acaba ela se move
         if happybar<=355:   
@@ -239,7 +237,7 @@ while telainicial:
             #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
-            tela.blit(sleepycat,(230,142))
+            tela.blit(skindormir,(230,142))
             tela.blit(sleepz,(200,140))
             tela.blit(sleepz,(220,100))
             #sounds
@@ -258,7 +256,7 @@ while telainicial:
             #images
             tela.blit(coraçao,(370,120))
             #sounds
-            miausound.play()
+     
             #wait
             pygame.display.update() 
             time.sleep(1) 
@@ -269,7 +267,7 @@ while telainicial:
                 happybar = happybar - 5
                 
         #funcionalid rabo do gato
-        if (rabocat_img.draw(tela)):
+        if (bike_img.draw(tela)):
             #images
             tela.blit(skinsuada,(230,142))
             #sounds
