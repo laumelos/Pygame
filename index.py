@@ -33,11 +33,12 @@ framebarra = pygame.image.load ('images/framebar.png')
 #cat variations
 littlecat = pygame.image.load ('images/littlecat.png')
 cat = pygame.image.load ("images/cat.png")
+skinsuada = pygame.image.load ("images/skinsuada.png")
 catcorpo = pygame.image.load ('images/catcorpo.png')
 sadcat = pygame.image.load ('images/sadcat.png')
 sleepycat =  pygame.image.load ('images/sleepycat.png')
 rabocat = pygame.image.load('images/rabocat.png')
-#fundo variations
+# fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
 fundobarra = pygame.image.load ('images/fundobarra.png')
@@ -93,7 +94,7 @@ agua_img = button(120, 395, agua_img)
 
 #button morango
 morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-morango_img = button(280, 390, morango_img)
+morango_img = button(250, 390, morango_img)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
@@ -105,7 +106,7 @@ cat_img = button(231,142, catcorpo_img)
 
 #button rabo cat
 rabocat_img = pygame.image.load("images/rabocat.png").convert_alpha()
-rabocat_img = button(392,291, rabocat_img)
+rabocat_img = button(392,390, rabocat_img)
 
 #TELAS
 
@@ -141,15 +142,15 @@ while telainicial:
         tela.blit(coraçao,(550,-40 + y))
     
         #cat
-        tela.blit(littlecat,(245,200))
+        tela.blit(littlecat,(270,200))
     
         #TEXTO
 
         #texto 1
-        txt='pet.com'                                                          
-        fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+        txt='Feliz dia dos pais!'                                                          
+        fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 30)
         txttela = fontetxt.render(txt, 1, (black))      
-        tela.blit(txttela,(230,100))    
+        tela.blit(txttela,(170,100))    
         #texto 2
         txt2='Aperte espaço para jogar'                      
         fontetxt2=pygame.font.Font('Minecraftia-Regular.ttf', 22)       
@@ -169,11 +170,11 @@ while telainicial:
         tela.blit(framebarra,(25,110))
 
         #cat image
-        tela.blit(cat,(200,142))
+        tela.blit(cat,(230,142))
   
         #button images
         tela.blit(water,(120, 395))
-        tela.blit(morango,(280, 390))
+        tela.blit(morango,(250, 390))
         tela.blit(lua,(460, 390))
 
         #enquanto a barra não acaba ela se move
@@ -221,8 +222,7 @@ while telainicial:
         #funcionalid comer
         if (morango_img.draw(tela)):
             #images
-            tela.blit(stain,(295, 195)) 
-            tela.blit(morangomord,(310, 220))
+            tela.blit(stain,(280, 245)) 
             #sounds
             chewsound.play()
             #wait
@@ -239,9 +239,9 @@ while telainicial:
             #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
-            tela.blit(sleepycat,(200,210))
-            tela.blit(sleepz,(200,210))
-            tela.blit(sleepz,(220,170))
+            tela.blit(sleepycat,(230,142))
+            tela.blit(sleepz,(200,140))
+            tela.blit(sleepz,(220,100))
             #sounds
             sleepsound.play()
             #wait
@@ -271,9 +271,9 @@ while telainicial:
         #funcionalid rabo do gato
         if (rabocat_img.draw(tela)):
             #images
-            tela.blit(angryface,(273,186))
+            tela.blit(skinsuada,(230,142))
             #sounds
-            catscreamsound.play()
+            # catscreamsound.play()
             #wait
             pygame.display.update() 
             time.sleep(2)
