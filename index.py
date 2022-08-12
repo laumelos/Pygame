@@ -31,6 +31,7 @@ framebarra = pygame.image.load ('images/framebar.png')
 #cat variations
 paipqn = pygame.image.load ('images/paipqn.png')
 cat = pygame.image.load ("images/cat.png")
+happyskin = pygame.image.load ("images/happyskin.png")
 skinsuada = pygame.image.load ("images/skinsuada.png")
 catcorpo = pygame.image.load ('images/catcorpo.png')
 sadcat = pygame.image.load ('images/sadcat.png')
@@ -187,7 +188,7 @@ while telainicial:
         else:
             #gato triste
             tela.blit(fundo,(0,0))
-            tela.blit(sadcat,(190,155))
+            tela.blit(sadcat,(231,142))
             #som
             mixer.music.stop()
             gameoversound.play()
@@ -195,7 +196,9 @@ while telainicial:
             txtfim='fim do jogo'                                                          
             fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
             txtfimtela = fontetxt.render(txtfim, 1, (black))      
-            tela.blit(txtfimtela,(200,100))
+            tela.blit(txtfimtela,(200,800))
+            time.sleep(4)
+            tela.blit(fundo,(0,0))
             #fim do jogo
             pygame.display.update()   
             time.sleep(4)
@@ -237,7 +240,7 @@ while telainicial:
             #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
-            tela.blit(skindormir,(230,142))
+            tela.blit(skindormir,(231,142))
             tela.blit(sleepz,(200,140))
             tela.blit(sleepz,(220,100))
             #sounds
@@ -254,6 +257,7 @@ while telainicial:
         #funcionalid pet
         if (cat_img.draw(tela)):
             #images
+            tela.blit(happyskin,(231,142))
             tela.blit(coraçao,(370,120))
             #sounds
      
@@ -266,10 +270,10 @@ while telainicial:
             else:
                 happybar = happybar - 5
                 
-        #funcionalid rabo do gato
+        #funcionalid bike
         if (bike_img.draw(tela)):
             #images
-            tela.blit(skinsuada,(230,142))
+            tela.blit(skinsuada,(231,142))
             #sounds
             # catscreamsound.play()
             #wait
