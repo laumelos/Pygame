@@ -20,21 +20,20 @@ y = 0
 
 #icons
 lua = pygame.image.load ("images/lua.png")
-morango = pygame.image.load ("images/morango.png")
-water = pygame.image.load ("images/agua.png")
-bubbles = pygame.image.load ('images/bolhas.png')
+acai = pygame.image.load ("images/acai.png")
+notebook = pygame.image.load ("images/notebook.png")
 coraçao = pygame.image.load ('images/coraçao.png')
 sleepz =  pygame.image.load ('images/sleepz.png')
 stain = pygame.image.load ('images/stain.png')
 framebarra = pygame.image.load ('images/framebar.png')
 
-#cat variations
+#pai variations
 paipqn = pygame.image.load ('images/paipqn.png')
-cat = pygame.image.load ("images/cat.png")
+pai = pygame.image.load ("images/pai.png")
 happyskin = pygame.image.load ("images/happyskin.png")
 skinsuada = pygame.image.load ("images/skinsuada.png")
-catcorpo = pygame.image.load ('images/catcorpo.png')
-sadcat = pygame.image.load ('images/sadcat.png')
+# pai = pygame.image.load ('images/pai.png')
+sadpai = pygame.image.load ('images/sadpai.png')
 skindormir =  pygame.image.load ('images/skindormir.png')
 bike = pygame.image.load('images/bike.png')
 familyphoto = pygame.image.load('images/familyphoto.png')
@@ -47,8 +46,6 @@ fundobarra = pygame.image.load ('images/fundobarra.png')
 #SOUNDS LOAD
 
 #sounds
-catscreamsound = mixer.Sound('sounds/catscreamsound.wav')
-bubblesound = mixer.Sound('sounds/bubblesound.wav')
 sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
 clicksound = mixer.Sound('sounds/clicksound.wav')
@@ -90,23 +87,23 @@ class button():
  
         return action
  
-#button agua
-agua_img = pygame.image.load("images/agua.png").convert_alpha()
-agua_img = button(120, 390, agua_img)
+#button notebook
+notebook_img = pygame.image.load("images/notebook.png").convert_alpha()
+notebook_img = button(120, 390, notebook_img)
 
-#button morango
-morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-morango_img = button(250, 395, morango_img)
+#button acai
+acai_img = pygame.image.load ("images/acai.png").convert_alpha()
+acai_img = button(250, 395, acai_img)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
 lua_img = button(470, 390,lua_img)
 
-#button cat
-catcorpo_img = pygame.image.load("images/catcorpo.png").convert_alpha()
-cat_img = button(231,142, catcorpo_img)
+#button pai
+pai_img = pygame.image.load("images/pai.png").convert_alpha()
+pai_img = button(231,142, pai_img)
 
-#button rabo cat
+#button rabo pai
 bike_img = pygame.image.load("images/bike.png").convert_alpha()
 bike_img = button(342,390, bike_img)
 
@@ -143,7 +140,7 @@ while telainicial:
         tela.blit(coraçao,(440,-100 + y))
         tela.blit(coraçao,(550,-40 + y))
     
-        #cat
+        #pai
         tela.blit(paipqn,(270,200))
     
         #TEXTO
@@ -171,12 +168,12 @@ while telainicial:
         tela.blit(fundobarra,(15, 353))
         tela.blit(framebarra,(25,110))
 
-        #cat image
-        tela.blit(cat,(230,142))
+        #pai image
+        tela.blit(pai,(230,142))
   
         #button images
-        tela.blit(water,(120, 390))
-        tela.blit(morango,(250, 395))
+        tela.blit(notebook,(120, 390))
+        tela.blit(acai,(250, 395))
         tela.blit(bike,(342,390))
         tela.blit(lua,(470, 390))
 
@@ -192,7 +189,7 @@ while telainicial:
         else:
             #gato triste
             tela.blit(fundo,(0,0))
-            tela.blit(sadcat,(231,142))
+            tela.blit(sadpai,(231,142))
             pygame.display.update() 
             #som
             mixer.music.stop()
@@ -216,7 +213,7 @@ while telainicial:
             pygame.quit()
         
         #funcionalid banho
-        if (agua_img.draw(tela)):    
+        if (notebook_img.draw(tela)):    
             #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
@@ -233,7 +230,7 @@ while telainicial:
                 happybar = happybar - 10
 
         #funcionalid comer
-        if (morango_img.draw(tela)):
+        if (acai_img.draw(tela)):
             #images
             tela.blit(stain,(280, 245)) 
             #sounds
@@ -252,7 +249,7 @@ while telainicial:
             #images
             tela.blit(framebarra,(25,110))
             tela.blit(fundoazul,(107,0))
-            tela.blit(skindormir,(231,142))
+            tela.blit(skindormir,(232,142))
             tela.blit(sleepz,(200,140))
             tela.blit(sleepz,(220,100))
             #sounds
@@ -267,9 +264,9 @@ while telainicial:
                 happybar = happybar - 10
 
         #funcionalid pet
-        if (cat_img.draw(tela)):
+        if (pai_img.draw(tela)):
             #images
-            tela.blit(happyskin,(231,142))
+            tela.blit(happyskin,(232,142))
             tela.blit(coraçao,(370,120))
             #sounds
      
@@ -285,7 +282,7 @@ while telainicial:
         #funcionalid bike
         if (bike_img.draw(tela)):
             #images
-            tela.blit(skinsuada,(231,142))
+            tela.blit(skinsuada,(232,142))
             #sounds
             bikesound.play()
             #wait
