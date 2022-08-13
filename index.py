@@ -54,8 +54,9 @@ chewsound = mixer.Sound('sounds/chewsound.wav')
 clicksound = mixer.Sound('sounds/clicksound.wav')
 gameoversound = mixer.Sound('sounds/gameoversound.wav')
 typingsound = mixer.Sound('sounds/typingsound.wav')
+bikesound = mixer.Sound('sounds/bikesound.wav')
 #music
-mixer.music.load('sounds/backgroundmusic.wav')
+mixer.music.load('sounds/MadonnaHoliday.wav')
 mixer.music.play(-1)
 
 #TELA
@@ -95,7 +96,7 @@ agua_img = button(120, 390, agua_img)
 
 #button morango
 morango_img = pygame.image.load ("images/morango.png").convert_alpha()
-morango_img = button(250, 390, morango_img)
+morango_img = button(250, 395, morango_img)
 
 #button lua
 lua_img = pygame.image.load("images/lua.png").convert_alpha()
@@ -175,7 +176,7 @@ while telainicial:
   
         #button images
         tela.blit(water,(120, 390))
-        tela.blit(morango,(250, 390))
+        tela.blit(morango,(250, 395))
         tela.blit(bike,(342,390))
         tela.blit(lua,(470, 390))
 
@@ -286,10 +287,10 @@ while telainicial:
             #images
             tela.blit(skinsuada,(231,142))
             #sounds
-            # catscreamsound.play()
+            bikesound.play()
             #wait
             pygame.display.update() 
-            time.sleep(2)
+            time.sleep(4)
             #-5 felicidade
             happybar = happybar + 5 
             
