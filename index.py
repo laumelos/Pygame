@@ -38,6 +38,7 @@ sadcat = pygame.image.load ('images/sadcat.png')
 skindormir =  pygame.image.load ('images/skindormir.png')
 bike = pygame.image.load('images/bike.png')
 familyphoto = pygame.image.load('images/familyphoto.png')
+skindev = pygame.image.load('images/skindev.png')
 # fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
@@ -52,6 +53,7 @@ sleepsound = mixer.Sound('sounds/sleepsound.wav')
 chewsound = mixer.Sound('sounds/chewsound.wav')
 clicksound = mixer.Sound('sounds/clicksound.wav')
 gameoversound = mixer.Sound('sounds/gameoversound.wav')
+typingsound = mixer.Sound('sounds/typingsound.wav')
 #music
 mixer.music.load('sounds/backgroundmusic.wav')
 mixer.music.play(-1)
@@ -89,7 +91,7 @@ class button():
  
 #button agua
 agua_img = pygame.image.load("images/agua.png").convert_alpha()
-agua_img = button(120, 395, agua_img)
+agua_img = button(120, 390, agua_img)
 
 #button morango
 morango_img = pygame.image.load ("images/morango.png").convert_alpha()
@@ -172,7 +174,7 @@ while telainicial:
         tela.blit(cat,(230,142))
   
         #button images
-        tela.blit(water,(120, 395))
+        tela.blit(water,(120, 390))
         tela.blit(morango,(250, 390))
         tela.blit(bike,(342,390))
         tela.blit(lua,(470, 390))
@@ -216,9 +218,10 @@ while telainicial:
         if (agua_img.draw(tela)):    
             #images
             tela.blit(framebarra,(25,110))
-            tela.blit(bubbles,(210, 80))
+            tela.blit(fundoazul,(107,0))
+            tela.blit(skindev,(231,142))
             #sounds                        
-            bubblesound.play()
+            typingsound.play()
             #wait
             pygame.display.update()                                 
             time.sleep(5)
