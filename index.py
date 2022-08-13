@@ -37,6 +37,7 @@ catcorpo = pygame.image.load ('images/catcorpo.png')
 sadcat = pygame.image.load ('images/sadcat.png')
 skindormir =  pygame.image.load ('images/skindormir.png')
 bike = pygame.image.load('images/bike.png')
+familyphoto = pygame.image.load('images/familyphoto.png')
 # fundo variations
 fundo = pygame.image.load ("images/fundojogo.png")
 fundoazul = pygame.image.load ('images/fundoazul.png')
@@ -180,7 +181,7 @@ while telainicial:
         if happybar<=355:   
             #movimento barra de felicidade
             pygame.draw.rect(tela, (white), (38,happybar,30,230))  
-            happybar = happybar + 0.06                #velocidade
+            happybar = happybar + 0.1                #velocidade
             tela.blit(fundobarra,(15, 353))
             tela.blit(framebarra,(25,110))
       
@@ -189,6 +190,7 @@ while telainicial:
             #gato triste
             tela.blit(fundo,(0,0))
             tela.blit(sadcat,(231,142))
+            pygame.display.update() 
             #som
             mixer.music.stop()
             gameoversound.play()
@@ -197,11 +199,17 @@ while telainicial:
             fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
             txtfimtela = fontetxt.render(txtfim, 1, (black))      
             tela.blit(txtfimtela,(200,800))
-            time.sleep(4)
+            time.sleep(2)
             tela.blit(fundo,(0,0))
+            txtfim='Te amamos muito!'                                                          
+            fontetxt=pygame.font.Font('Minecraftia-Regular.ttf', 40)
+            txtfimtela = fontetxt.render(txtfim, 1, (black))      
+            tela.blit(txtfimtela,(120,60))
+            tela.blit(familyphoto,(30,170))
+            
             #fim do jogo
             pygame.display.update()   
-            time.sleep(4)
+            time.sleep(6)
             pygame.quit()
         
         #funcionalid banho
